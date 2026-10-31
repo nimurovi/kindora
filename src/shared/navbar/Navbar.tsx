@@ -99,11 +99,11 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-semibold transition-colors ${
-                pathname === link.href
+              prefetch={true}
+              className={`text-sm font-semibold transition-colors ${pathname === link.href
                   ? "text-green-700"
                   : "text-slate-600 hover:text-green-700"
-              }`}
+                }`}
             >
               {link.name}
             </Link>
@@ -116,7 +116,7 @@ export default function Navbar() {
             <div className="h-10 w-24 animate-pulse rounded-lg bg-green-100" />
           ) : !isLoggedIn ? (
             <Link
-              href="/login"
+              href="/signin"
               className="rounded-lg bg-green-700 px-6 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-green-800"
             >
               Login
@@ -156,9 +156,8 @@ export default function Navbar() {
 
                 <ChevronDown
                   size={16}
-                  className={`mr-1 text-green-700 transition-transform ${
-                    dropdownOpen ? "rotate-180" : ""
-                  }`}
+                  className={`mr-1 text-green-700 transition-transform ${dropdownOpen ? "rotate-180" : ""
+                    }`}
                 />
               </button>
 
@@ -242,7 +241,7 @@ export default function Navbar() {
 
             {!isPending && !isLoggedIn && (
               <Link
-                href="/login"
+                href="/signin"
                 onClick={() => setIsOpen(false)}
                 className="mt-2 rounded-lg bg-green-700 px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-green-800"
               >
