@@ -111,12 +111,13 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Authentication */}
-        <div className="flex items-center gap-3">
-          <ThemeToggle />
 
-          {/* Your existing Login/Profile button */}
-        </div>
         <div className="hidden items-center gap-4 md:flex">
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+
+            {/* Your existing Login/Profile button */}
+          </div>
           {isPending ? (
             <div className="h-10 w-24 animate-pulse rounded-lg bg-green-100 dark:bg-green-900/40" />
           ) : !isLoggedIn ? (
@@ -242,6 +243,11 @@ export default function Navbar() {
       {isOpen && (
         <div className="border-t border-green-100 dark:border-green-900/60 bg-white dark:bg-slate-900 px-5 py-5 shadow-lg md:hidden">
 
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+
+            {/* Your existing Login/Profile button */}
+          </div>
           <div className="flex flex-col gap-2">
 
             {navLinks.map((link) => (
@@ -256,13 +262,16 @@ export default function Navbar() {
             ))}
 
             {!isPending && !isLoggedIn && (
-              <Link
-                href="/signin"
-                onClick={() => setIsOpen(false)}
-                className="mt-2 rounded-lg bg-green-700 px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-green-800"
-              >
-                Login
-              </Link>
+              <div>
+
+                <Link
+                  href="/signin"
+                  onClick={() => setIsOpen(false)}
+                  className="mt-2 rounded-lg bg-green-700 px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-green-800"
+                >
+                  Login
+                </Link>
+              </div>
             )}
 
             {!isPending && isLoggedIn && (

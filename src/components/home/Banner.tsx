@@ -32,7 +32,7 @@ export default function HeroBanner() {
             <div className="absolute -bottom-20 -right-10 h-48 w-48 rounded-full bg-yellow-400" />
 
             {/* Main banner */}
-            <div className="relative mx-auto max-w-[1450px] overflow-hidden rounded-[28px] bg-white">
+            <div className="relative mx-auto max-w-[1450px] overflow-hidden rounded-[28px]  ">
 
                 {/* Hero content */}
                 <div className="relative z-10 px-6 pb-12 pt-12 sm:px-12 md:px-16 lg:px-20 lg:pb-16 lg:pt-24">
