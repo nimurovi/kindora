@@ -4,22 +4,22 @@ import { ArrowRight, Heart } from "lucide-react";
 
 const communityImages = [
     {
-        src: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=700",
+        src: "photo1.jpeg",
         alt: "Volunteers working together",
         shape: "rounded-t-full",
     },
     {
-        src: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=700",
+        src: "photo2.jpeg",
         alt: "People supporting their community",
         shape: "rounded-t-full",
     },
     {
-        src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=700",
+        src: "photo3.jpeg",
         alt: "Community education and support",
         shape: "rounded-t-full",
     },
     {
-        src: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=700",
+        src: "photo4.jpeg",
         alt: "Volunteers helping others",
         shape: "rounded-t-full",
     },
