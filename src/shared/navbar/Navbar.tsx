@@ -64,7 +64,7 @@ export default function Navbar() {
     setDropdownOpen(false);
     setIsOpen(false);
 
-    router.push("/login");
+    router.push("/signin");
     router.refresh();
   };
 
@@ -130,42 +130,53 @@ export default function Navbar() {
             <div className="relative">
 
               {/* Profile Button */}
-              <button
-                type="button"
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                title={displayName}
-                aria-label="Open profile menu"
-                aria-expanded={dropdownOpen}
-                className="group flex items-center gap-2 rounded-full border border-green-100 dark:border-green-900/60 bg-white dark:bg-slate-900 p-1.5 transition hover:border-green-300 hover:bg-green-50 dark:hover:bg-slate-800"
-              >
-                <div className="relative h-10 w-10 overflow-hidden rounded-full bg-green-100 dark:bg-green-900/40">
-                  {profileImage ? (
-                    <Image
-                      src={profileImage}
-                      alt={displayName}
-                      fill
-                      sizes="40px"
-                      className="object-cover"
-                    />
-                  ) : (
-                    <UserRound
-                      size={22}
-                      className="m-auto mt-2 text-green-700 dark:text-green-400"
-                    />
-                  )}
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  title={displayName}
+                  aria-label="Open profile menu"
+                  aria-expanded={dropdownOpen}
+                  className="group flex items-center gap-2 rounded-full border border-green-100 dark:border-green-900/60 bg-white dark:bg-slate-900 p-1.5 transition hover:border-green-300 hover:bg-green-50 dark:hover:bg-slate-800"
+                >
+                  <div className="relative h-10 w-10 overflow-hidden rounded-full bg-green-100 dark:bg-green-900/40">
+                    {profileImage ? (
+                      <Image
+                        src={profileImage}
+                        alt={displayName}
+                        fill
+                        sizes="40px"
+                        className="object-cover"
+                      />
+                    ) : (
+                      <UserRound
+                        size={22}
+                        className="m-auto mt-2 text-green-700 dark:text-green-400"
+                      />
+                    )}
+                  </div>
+
+                  <span className="max-w-28 truncate text-sm font-semibold text-slate-700 dark:text-slate-200">
+                    {displayName}
+                  </span>
+
+                  <ChevronDown
+                    size={16}
+                    className={`mr-1 text-green-700 dark:text-green-400 transition-transform ${dropdownOpen ? "rotate-180" : ""
+                      }`}
+                  />
+                </button>
+
+                <div className="border-t border-green-50 dark:border-green-900/60 p-2">
+                  <button
+                    onClick={handleLogout}
+                    className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm font-semibold text-red-500 transition hover:bg-red-50 dark:hover:bg-red-950/30"
+                  >
+                    <LogOut size={18} />
+                    Logout
+                  </button>
                 </div>
-
-                <span className="max-w-28 truncate text-sm font-semibold text-slate-700 dark:text-slate-200">
-                  {displayName}
-                </span>
-
-                <ChevronDown
-                  size={16}
-                  className={`mr-1 text-green-700 dark:text-green-400 transition-transform ${dropdownOpen ? "rotate-180" : ""
-                    }`}
-                />
-              </button>
-
+              </div>
               {/* Profile Dropdown */}
               {dropdownOpen && (
                 <div className="absolute right-0 top-14 w-64 overflow-hidden rounded-xl border border-green-100 dark:border-green-900/60 bg-white dark:bg-slate-900 shadow-xl">
