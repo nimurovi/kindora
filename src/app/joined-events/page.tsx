@@ -6,7 +6,7 @@ import { CalendarDays, Search, Ticket, ArrowRight, Loader2 } from "lucide-react"
 
 import { authClient } from "@/lib/auth-client";
 import EventCard from "@/components/events/EventCard";
- 
+
 
 import type { Event } from "@/types/event";
 
@@ -33,10 +33,9 @@ export default function JoinedEventsPage() {
                 setError("");
 
                 const response = await fetch(
-                    "http://localhost:8000/my-joined-events",
+                    `http://localhost:8000/my-joined-events?userId=${encodeURIComponent(session.user.id)}`,
                     {
                         method: "GET",
-                        credentials: "include",
                         cache: "no-store",
                     }
                 );
