@@ -1,6 +1,6 @@
 
 "use client";
-
+import ThemeToggle from "@/shared/ThemeToggle";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -69,7 +69,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-green-100 bg-white/95 shadow-sm backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-green-100 dark:border-green-900/60 bg-white dark:bg-slate-950/95 shadow-sm backdrop-blur-md">
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
         {/* Logo and Brand Name */}
@@ -84,10 +84,10 @@ export default function Navbar() {
           />
 
           <div>
-            <h1 className="text-2xl font-extrabold tracking-tight text-green-800">
+            <h1 className="text-2xl font-extrabold tracking-tight text-green-800 dark:text-green-300">
               Kindora
             </h1>
-            <p className="text-[10px] font-semibold uppercase tracking-[2px] text-green-600">
+            <p className="text-[10px] font-semibold uppercase tracking-[2px] text-green-600 dark:text-green-400">
               Connect. Participate. Grow.
             </p>
           </div>
@@ -101,8 +101,8 @@ export default function Navbar() {
               href={link.href}
               prefetch={true}
               className={`text-sm font-semibold transition-colors ${pathname === link.href
-                  ? "text-green-700"
-                  : "text-slate-600 hover:text-green-700"
+                ? "text-green-700 dark:text-green-400"
+                : "text-slate-600 dark:text-slate-300 hover:text-green-700 dark:hover:text-green-400"
                 }`}
             >
               {link.name}
@@ -111,9 +111,14 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Authentication */}
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+
+          {/* Your existing Login/Profile button */}
+        </div>
         <div className="hidden items-center gap-4 md:flex">
           {isPending ? (
-            <div className="h-10 w-24 animate-pulse rounded-lg bg-green-100" />
+            <div className="h-10 w-24 animate-pulse rounded-lg bg-green-100 dark:bg-green-900/40" />
           ) : !isLoggedIn ? (
             <Link
               href="/signin"
@@ -131,9 +136,9 @@ export default function Navbar() {
                 title={displayName}
                 aria-label="Open profile menu"
                 aria-expanded={dropdownOpen}
-                className="group flex items-center gap-2 rounded-full border border-green-100 bg-white p-1.5 transition hover:border-green-300 hover:bg-green-50"
+                className="group flex items-center gap-2 rounded-full border border-green-100 dark:border-green-900/60 bg-white dark:bg-slate-900 p-1.5 transition hover:border-green-300 hover:bg-green-50 dark:hover:bg-slate-800"
               >
-                <div className="relative h-10 w-10 overflow-hidden rounded-full bg-green-100">
+                <div className="relative h-10 w-10 overflow-hidden rounded-full bg-green-100 dark:bg-green-900/40">
                   {profileImage ? (
                     <Image
                       src={profileImage}
@@ -145,32 +150,32 @@ export default function Navbar() {
                   ) : (
                     <UserRound
                       size={22}
-                      className="m-auto mt-2 text-green-700"
+                      className="m-auto mt-2 text-green-700 dark:text-green-400"
                     />
                   )}
                 </div>
 
-                <span className="max-w-28 truncate text-sm font-semibold text-slate-700">
+                <span className="max-w-28 truncate text-sm font-semibold text-slate-700 dark:text-slate-200">
                   {displayName}
                 </span>
 
                 <ChevronDown
                   size={16}
-                  className={`mr-1 text-green-700 transition-transform ${dropdownOpen ? "rotate-180" : ""
+                  className={`mr-1 text-green-700 dark:text-green-400 transition-transform ${dropdownOpen ? "rotate-180" : ""
                     }`}
                 />
               </button>
 
               {/* Profile Dropdown */}
               {dropdownOpen && (
-                <div className="absolute right-0 top-14 w-64 overflow-hidden rounded-xl border border-green-100 bg-white shadow-xl">
+                <div className="absolute right-0 top-14 w-64 overflow-hidden rounded-xl border border-green-100 dark:border-green-900/60 bg-white dark:bg-slate-900 shadow-xl">
 
                   {/* User Information */}
-                  <div className="border-b border-green-50 bg-green-50/70 px-4 py-4">
-                    <p className="truncate text-sm font-bold text-green-900">
+                  <div className="border-b border-green-50 bg-green-50 dark:bg-slate-800 px-4 py-4">
+                    <p className="truncate text-sm font-bold text-green-900 dark:text-green-200">
                       {displayName}
                     </p>
-                    <p className="truncate text-xs text-slate-500">
+                    <p className="truncate text-xs text-slate-500 dark:text-slate-400">
                       {user?.email}
                     </p>
                   </div>
@@ -185,9 +190,9 @@ export default function Navbar() {
                           key={link.href}
                           href={link.href}
                           onClick={() => setDropdownOpen(false)}
-                          className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-slate-600 transition hover:bg-green-50 hover:text-green-800"
+                          className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-slate-600 dark:text-slate-300 transition hover:bg-green-50 dark:hover:bg-slate-800 hover:text-green-800 dark:hover:text-green-300"
                         >
-                          <Icon size={18} className="text-green-700" />
+                          <Icon size={18} className="text-green-700 dark:text-green-400" />
                           {link.name}
                         </Link>
                       );
@@ -195,10 +200,10 @@ export default function Navbar() {
                   </div>
 
                   {/* Logout */}
-                  <div className="border-t border-green-50 p-2">
+                  <div className="border-t border-green-50 dark:border-green-900/60 p-2">
                     <button
                       onClick={handleLogout}
-                      className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm font-semibold text-red-500 transition hover:bg-red-50"
+                      className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm font-semibold text-red-500 transition hover:bg-red-50 dark:hover:bg-red-950/30"
                     >
                       <LogOut size={18} />
                       Logout
@@ -214,7 +219,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="rounded-lg p-2 text-green-800 transition hover:bg-green-50 md:hidden"
+          className="rounded-lg p-2 text-green-800 dark:text-green-300 transition hover:bg-green-50 dark:hover:bg-slate-800 md:hidden"
           aria-label="Toggle navigation"
           aria-expanded={isOpen}
         >
@@ -224,7 +229,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="border-t border-green-100 bg-white px-5 py-5 shadow-lg md:hidden">
+        <div className="border-t border-green-100 dark:border-green-900/60 bg-white dark:bg-slate-900 px-5 py-5 shadow-lg md:hidden">
 
           <div className="flex flex-col gap-2">
 
@@ -233,7 +238,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-green-50 hover:text-green-800"
+                className="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200 transition hover:bg-green-50 dark:hover:bg-slate-800 hover:text-green-800 dark:hover:text-green-300"
               >
                 {link.name}
               </Link>
@@ -252,8 +257,8 @@ export default function Navbar() {
             {!isPending && isLoggedIn && (
               <>
                 {/* Mobile User Information */}
-                <div className="my-2 flex items-center gap-3 border-y border-green-100 py-4">
-                  <div className="relative h-11 w-11 overflow-hidden rounded-full bg-green-100">
+                <div className="my-2 flex items-center gap-3 border-y border-green-100 dark:border-green-900/60 py-4">
+                  <div className="relative h-11 w-11 overflow-hidden rounded-full bg-green-100 dark:bg-green-900/40">
                     {profileImage ? (
                       <Image
                         src={profileImage}
@@ -265,16 +270,16 @@ export default function Navbar() {
                     ) : (
                       <UserRound
                         size={23}
-                        className="m-auto mt-2 text-green-700"
+                        className="m-auto mt-2 text-green-700 dark:text-green-400"
                       />
                     )}
                   </div>
 
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-bold text-green-900">
+                    <p className="truncate text-sm font-bold text-green-900 dark:text-green-200">
                       {displayName}
                     </p>
-                    <p className="truncate text-xs text-slate-500">
+                    <p className="truncate text-xs text-slate-500 dark:text-slate-400">
                       {user?.email}
                     </p>
                   </div>
@@ -289,9 +294,9 @@ export default function Navbar() {
                       key={link.href}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-green-50 hover:text-green-800"
+                      className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200 transition hover:bg-green-50 dark:hover:bg-slate-800 hover:text-green-800 dark:hover:text-green-300"
                     >
-                      <Icon size={18} className="text-green-700" />
+                      <Icon size={18} className="text-green-700 dark:text-green-400" />
                       {link.name}
                     </Link>
                   );
@@ -300,7 +305,7 @@ export default function Navbar() {
                 {/* Mobile Logout */}
                 <button
                   onClick={handleLogout}
-                  className="mt-2 flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-bold text-red-500 transition hover:bg-red-50"
+                  className="mt-2 flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-bold text-red-500 transition hover:bg-red-50 dark:hover:bg-red-950/30"
                 >
                   <LogOut size={18} />
                   Logout

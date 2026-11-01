@@ -137,8 +137,8 @@ export default function CreateEventPage() {
 
     if (isPending) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-green-50">
-                <p className="text-green-700 font-medium">
+            <div className="min-h-screen flex items-center justify-center bg-green-50 dark:bg-slate-800">
+                <p className="text-green-700 dark:text-green-400 font-medium">
                     Loading...
                 </p>
             </div>
@@ -147,11 +147,11 @@ export default function CreateEventPage() {
 
     if (!session?.user) {
         return (
-            <div className="min-h-screen flex flex-col items-center justify-center bg-green-50 px-4">
-                <h2 className="text-2xl font-bold text-gray-800">
+            <div className="min-h-screen flex flex-col items-center justify-center bg-green-50 dark:bg-slate-800 px-4">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-slate-200">
                     Login Required
                 </h2>
-                <p className="text-gray-500 mt-2">
+                <p className="text-gray-500 dark:text-slate-400 mt-2">
                     Please login to create an event.
                 </p>
                 <Link
@@ -166,14 +166,14 @@ export default function CreateEventPage() {
 
    
     return (
-        <div className="min-h-screen bg-[#f0f7f1] py-10 px-4">
+        <div className="min-h-screen bg-[#f0f7f1] dark:bg-slate-950 py-10 px-4">
 
             <div className="max-w-3xl mx-auto">
 
                 {/* Back Button */}
                 <Link
                     href="/upcoming-events"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-green-700 hover:text-green-900 mb-6"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-green-700 dark:text-green-400 hover:text-green-900 dark:hover:text-green-200 mb-6"
                 >
                     <ArrowLeft size={18} />
                     Back to Upcoming Events
@@ -182,15 +182,15 @@ export default function CreateEventPage() {
                 {/* Heading */}
                 <div className="mb-8">
                     <div className="flex items-center gap-3 mb-3">
-                        <div className="h-12 w-12 rounded-xl bg-green-100 flex items-center justify-center">
-                            <PlusCircle className="text-green-700" size={27} />
+                        <div className="h-12 w-12 rounded-xl bg-green-100 dark:bg-green-900/40 flex items-center justify-center">
+                            <PlusCircle className="text-green-700 dark:text-green-400" size={27} />
                         </div>
 
                         <div>
-                            <h1 className="text-3xl font-bold text-gray-800">
+                            <h1 className="text-3xl font-bold text-gray-800 dark:text-slate-200">
                                 Create an Event
                             </h1>
-                            <p className="text-sm text-gray-500 mt-1">
+                            <p className="text-sm text-gray-500 dark:text-slate-400 mt-1">
                                 Bring your community together and make a difference.
                             </p>
                         </div>
@@ -198,14 +198,14 @@ export default function CreateEventPage() {
                 </div>
 
                 {/* Form Card */}
-                <div className="bg-white border border-green-100 rounded-2xl shadow-sm p-6 sm:p-8">
+                <div className="bg-white dark:bg-slate-900 border border-green-100 dark:border-green-900/60 rounded-2xl shadow-sm p-6 sm:p-8">
 
                     <form onSubmit={handleSubmit} className="space-y-6">
 
                         {/* Event Title */}
                         <div>
-                            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                                <Type size={17} className="text-green-700" />
+                            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">
+                                <Type size={17} className="text-green-700 dark:text-green-400" />
                                 Event Title
                             </label>
 
@@ -217,14 +217,14 @@ export default function CreateEventPage() {
                                 placeholder="Example: Winter Clothes Distribution"
                                 required
                                 maxLength={100}
-                                className="w-full h-12 px-4 border border-gray-200 rounded-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 text-sm"
+                                className="w-full h-12 px-4 border border-gray-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-green-600 dark:focus:border-green-500 focus:ring-2 focus:ring-green-100 dark:focus:ring-green-900/50 text-sm"
                             />
                         </div>
 
                         {/* Description */}
                         <div>
-                            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                                <FileText size={17} className="text-green-700" />
+                            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">
+                                <FileText size={17} className="text-green-700 dark:text-green-400" />
                                 Event Description
                             </label>
 
@@ -236,13 +236,13 @@ export default function CreateEventPage() {
                                 required
                                 rows={5}
                                 maxLength={2000}
-                                className="w-full p-4 border border-gray-200 rounded-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 text-sm resize-none"
+                                className="w-full p-4 border border-gray-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-green-600 dark:focus:border-green-500 focus:ring-2 focus:ring-green-100 dark:focus:ring-green-900/50 text-sm resize-none"
                             />
                         </div>
 
                         {/* Event Type */}
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">
                                 Event Type
                             </label>
 
@@ -251,7 +251,7 @@ export default function CreateEventPage() {
                                 value={formData.eventType}
                                 onChange={handleChange}
                                 required
-                                className="w-full h-12 px-4 border border-gray-200 rounded-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 text-sm bg-white"
+                                className="w-full h-12 px-4 border border-gray-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-green-600 dark:focus:border-green-500 focus:ring-2 focus:ring-green-100 dark:focus:ring-green-900/50 text-sm"
                             >
                                 <option value="">
                                     Select event type
@@ -267,8 +267,8 @@ export default function CreateEventPage() {
 
                         {/* Thumbnail URL */}
                         <div>
-                            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                                <ImageIcon size={17} className="text-green-700" />
+                            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">
+                                <ImageIcon size={17} className="text-green-700 dark:text-green-400" />
                                 Thumbnail Image URL
                             </label>
 
@@ -279,14 +279,14 @@ export default function CreateEventPage() {
                                 onChange={handleChange}
                                 placeholder="https://example.com/event-image.jpg"
                                 required
-                                className="w-full h-12 px-4 border border-gray-200 rounded-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 text-sm"
+                                className="w-full h-12 px-4 border border-gray-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-green-600 dark:focus:border-green-500 focus:ring-2 focus:ring-green-100 dark:focus:ring-green-900/50 text-sm"
                             />
                         </div>
 
                         {/* Location */}
                         <div>
-                            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                                <MapPin size={17} className="text-green-700" />
+                            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">
+                                <MapPin size={17} className="text-green-700 dark:text-green-400" />
                                 Event Location
                             </label>
 
@@ -297,14 +297,14 @@ export default function CreateEventPage() {
                                 onChange={handleChange}
                                 placeholder="Example: Mirpur 10, Dhaka"
                                 required
-                                className="w-full h-12 px-4 border border-gray-200 rounded-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 text-sm"
+                                className="w-full h-12 px-4 border border-gray-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-green-600 dark:focus:border-green-500 focus:ring-2 focus:ring-green-100 dark:focus:ring-green-900/50 text-sm"
                             />
                         </div>
 
                         {/* Event Date */}
                         <div>
-                            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                                <CalendarDays size={17} className="text-green-700" />
+                            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">
+                                <CalendarDays size={17} className="text-green-700 dark:text-green-400" />
                                 Event Date
                             </label>
 
@@ -315,17 +315,17 @@ export default function CreateEventPage() {
                                 onChange={handleChange}
                                 min={minDate}
                                 required
-                                className="w-full h-12 px-4 border border-gray-200 rounded-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 text-sm"
+                                className="w-full h-12 px-4 border border-gray-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-green-600 dark:focus:border-green-500 focus:ring-2 focus:ring-green-100 dark:focus:ring-green-900/50 text-sm"
                             />
 
-                            <p className="text-xs text-gray-400 mt-2">
+                            <p className="text-xs text-gray-400 dark:text-slate-400 mt-2">
                                 Only future dates are allowed.
                             </p>
                         </div>
 
                         {/* Creator Email */}
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">
                                 Created By
                             </label>
 
@@ -333,7 +333,7 @@ export default function CreateEventPage() {
                                 type="email"
                                 value={session.user.email}
                                 readOnly
-                                className="w-full h-12 px-4 border border-gray-200 rounded-lg bg-gray-50 text-gray-500 text-sm cursor-not-allowed"
+                                className="w-full h-12 px-4 border border-gray-200 dark:border-slate-700 rounded-lg bg-gray-50 dark:bg-slate-800 text-gray-500 dark:text-slate-400 text-sm cursor-not-allowed"
                             />
                         </div>
 
@@ -350,7 +350,7 @@ export default function CreateEventPage() {
                     </form>
                 </div>
 
-                <p className="text-center text-xs text-gray-400 mt-6">
+                <p className="text-center text-xs text-gray-400 dark:text-slate-400 mt-6">
                     Together, we can make our community a better place.
                 </p>
 

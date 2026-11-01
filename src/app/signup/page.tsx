@@ -101,35 +101,35 @@ export default function SignUp() {
     };
 
     return (
-        <div className="min-h-screen bg-[#f0f7f1] flex items-center justify-center px-4 py-10">
+        <div className="min-h-screen bg-[#f0f7f1] dark:bg-slate-950 flex items-center justify-center px-4 py-10">
 
             <div className="w-full max-w-md">
 
                 {/* Header */}
                 <div className="text-center mb-7">
                     <Link href="/" className="inline-block mb-4">
-                        <h1 className="text-3xl font-extrabold text-green-700">
+                        <h1 className="text-3xl font-extrabold text-green-700 dark:text-green-400">
                             Kindora
                         </h1>
                     </Link>
 
-                    <h2 className="text-2xl font-bold text-gray-800">
+                    <h2 className="text-2xl font-bold text-gray-800 dark:text-slate-200">
                         Create an Account
                     </h2>
 
-                    <p className="text-sm text-gray-500 mt-2">
+                    <p className="text-sm text-gray-500 dark:text-slate-400 mt-2">
                         Join Kindora and make a difference in your community.
                     </p>
                 </div>
 
                 {/* Register Card */}
-                <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-lg shadow-green-900/5">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 rounded-2xl p-6 sm:p-8 shadow-lg shadow-green-900/5">
 
                     <form onSubmit={handleSubmit} className="space-y-4">
 
                         {/* Name */}
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                            <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
                                 Full Name
                             </label>
 
@@ -138,13 +138,13 @@ export default function SignUp() {
                                 type="text"
                                 placeholder="Enter your full name"
                                 required
-                                className="w-full h-11 px-4 text-sm border border-gray-200 rounded-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition"
+                                className="w-full h-11 px-4 text-sm border border-gray-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-green-600 dark:focus:border-green-500 focus:ring-2 focus:ring-green-100 dark:focus:ring-green-900/50 transition"
                             />
                         </div>
 
                         {/* Email */}
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                            <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
                                 Email Address
                             </label>
 
@@ -153,15 +153,15 @@ export default function SignUp() {
                                 type="email"
                                 placeholder="you@example.com"
                                 required
-                                className="w-full h-11 px-4 text-sm border border-gray-200 rounded-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition"
+                                className="w-full h-11 px-4 text-sm border border-gray-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-green-600 dark:focus:border-green-500 focus:ring-2 focus:ring-green-100 dark:focus:ring-green-900/50 transition"
                             />
                         </div>
 
                         {/* Photo URL */}
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                            <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
                                 Photo URL
-                                <span className="text-gray-400 font-normal ml-1">
+                                <span className="text-gray-400 dark:text-slate-400 font-normal ml-1">
                                     (Optional)
                                 </span>
                             </label>
@@ -170,13 +170,13 @@ export default function SignUp() {
                                 name="photoURL"
                                 type="url"
                                 placeholder="https://example.com/photo.jpg"
-                                className="w-full h-11 px-4 text-sm border border-gray-200 rounded-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition"
+                                className="w-full h-11 px-4 text-sm border border-gray-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-green-600 dark:focus:border-green-500 focus:ring-2 focus:ring-green-100 dark:focus:ring-green-900/50 transition"
                             />
                         </div>
 
                         {/* Password */}
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                            <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
                                 Password
                             </label>
 
@@ -185,17 +185,17 @@ export default function SignUp() {
                                 type="password"
                                 placeholder="Enter your password"
                                 required
-                                className="w-full h-11 px-4 text-sm border border-gray-200 rounded-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition"
+                                className="w-full h-11 px-4 text-sm border border-gray-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-green-600 dark:focus:border-green-500 focus:ring-2 focus:ring-green-100 dark:focus:ring-green-900/50 transition"
                             />
 
-                            <p className="text-xs text-gray-400 mt-1.5">
+                            <p className="text-xs text-gray-400 dark:text-slate-400 mt-1.5">
                                 At least 6 characters, including uppercase and lowercase letters.
                             </p>
                         </div>
 
                         {/* Confirm Password */}
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                            <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
                                 Confirm Password
                             </label>
 
@@ -204,7 +204,7 @@ export default function SignUp() {
                                 type="password"
                                 placeholder="Re-enter your password"
                                 required
-                                className="w-full h-11 px-4 text-sm border border-gray-200 rounded-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition"
+                                className="w-full h-11 px-4 text-sm border border-gray-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-green-600 dark:focus:border-green-500 focus:ring-2 focus:ring-green-100 dark:focus:ring-green-900/50 transition"
                             />
                         </div>
 
@@ -221,13 +221,13 @@ export default function SignUp() {
 
                     {/* Divider */}
                     <div className="flex items-center gap-3 my-6">
-                        <div className="flex-1 h-px bg-gray-200" />
+                        <div className="flex-1 h-px bg-gray-200 dark:bg-slate-700" />
 
-                        <span className="text-xs text-gray-400 font-medium">
+                        <span className="text-xs text-gray-400 dark:text-slate-400 font-medium">
                             OR CONTINUE WITH
                         </span>
 
-                        <div className="flex-1 h-px bg-gray-200" />
+                        <div className="flex-1 h-px bg-gray-200 dark:bg-slate-700" />
                     </div>
 
                     {/* Social Registration */}
@@ -236,7 +236,7 @@ export default function SignUp() {
                         <button
                             onClick={handleGoogleSignUp}
                             type="button"
-                            className="h-11 border border-gray-200 rounded-lg flex items-center justify-center gap-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition"
+                            className="h-11 border border-gray-200 dark:border-slate-700 rounded-lg flex items-center justify-center gap-2 text-sm font-medium text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 transition"
                         >
                             <FcGoogle className="text-xl" />
                             Google
@@ -245,7 +245,7 @@ export default function SignUp() {
                         <button
                             onClick={handleGithubSignUp}
                             type="button"
-                            className="h-11 border border-gray-200 rounded-lg flex items-center justify-center gap-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition"
+                            className="h-11 border border-gray-200 dark:border-slate-700 rounded-lg flex items-center justify-center gap-2 text-sm font-medium text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 transition"
                         >
                             <FaGithub className="text-xl" />
                             GitHub
@@ -254,11 +254,11 @@ export default function SignUp() {
                     </div>
 
                     {/* Login Link */}
-                    <p className="text-center text-sm text-gray-500 mt-6">
+                    <p className="text-center text-sm text-gray-500 dark:text-slate-400 mt-6">
                         Already have an account?{" "}
                         <Link
                             href="/login"
-                            className="text-green-600 hover:text-green-700 font-semibold"
+                            className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-semibold"
                         >
                             Login
                         </Link>
@@ -270,7 +270,7 @@ export default function SignUp() {
                 <div className="text-center mt-6">
                     <Link
                         href="/"
-                        className="text-sm text-gray-400 hover:text-green-600 transition"
+                        className="text-sm text-gray-400 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-400 transition"
                     >
                         ← Back to Home
                     </Link>
