@@ -1,155 +1,238 @@
 
 import Link from "next/link";
 import {
-    CalendarDays,
-    Users,
     HeartHandshake,
-    MapPin,
     ShieldCheck,
-    HandHeart,
+    GraduationCap,
+    CalendarDays,
     ArrowUpRight,
+    Users,
+    HandHeart,
+    Leaf,
 } from "lucide-react";
 
-const features = [
+const services = [
     {
-        number: "01",
-        icon: CalendarDays,
-        title: "Discover Community Events",
-        description:
-            "Explore upcoming community activities, social campaigns, and volunteering opportunities in one place.",
-        color: "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400",
-    },
-    {
-        number: "02",
         icon: HeartHandshake,
-        title: "Join Meaningful Causes",
+        title: "Community Events",
         description:
-            "Take part in activities that matter to you and contribute your time to make a positive difference.",
-        color: "bg-orange-100 text-orange-700 dark:bg-orange-950 dark:text-orange-400",
+            "Discover meaningful community activities, social campaigns, and opportunities to make a positive difference.",
+        featured: false,
     },
     {
-        number: "03",
-        icon: HandHeart,
-        title: "Create Your Own Events",
-        description:
-            "Have an idea for your community? Create an event and invite others to participate in your initiative.",
-        color: "bg-pink-100 text-pink-700 dark:bg-pink-950 dark:text-pink-400",
-    },
-    {
-        number: "04",
-        icon: Users,
-        title: "Build Strong Connections",
-        description:
-            "Meet people who share your interests, collaborate with volunteers, and grow a stronger community.",
-        color: "bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-400",
-    },
-    {
-        number: "05",
-        icon: MapPin,
-        title: "Find Events Near You",
-        description:
-            "Discover community activities by location and find opportunities to get involved around you.",
-        color: "bg-purple-100 text-purple-700 dark:bg-purple-950 dark:text-purple-400",
-    },
-    {
-        number: "06",
         icon: ShieldCheck,
-        title: "Manage Your Activities",
+        title: "Volunteer & Participate",
         description:
-            "Keep track of the events you organize and the activities you have joined through your account.",
-        color: "bg-yellow-100 text-yellow-700 dark:bg-yellow-950 dark:text-yellow-400",
+            "Connect with people who care. Join local initiatives and contribute your time to causes that matter.",
+        featured: true,
+    },
+    {
+        icon: GraduationCap,
+        title: "Create Events",
+        description:
+            "Have an idea to improve your community? Organize an event and bring people together for a shared purpose.",
+        featured: false,
+    },
+    {
+        icon: CalendarDays,
+        title: "Track Your Activities",
+        description:
+            "Manage the events you organize and keep track of the community activities you have joined.",
+        featured: false,
     },
 ];
 
 export default function FeaturesSection() {
     return (
-        <section className="bg-white px-4 py-20 sm:px-6 md:py-28 dark:bg-gray-950">
+        <section className="overflow-hidden bg-white px-4 py-20 sm:px-6 md:py-24 dark:bg-gray-950">
             <div className="mx-auto max-w-7xl">
 
-                {/* Section heading */}
-                <div className="mx-auto mb-14 max-w-2xl text-center">
-                    <span className="inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-2 text-sm font-semibold text-green-700 dark:bg-green-950/50 dark:text-green-400">
-                        <HeartHandshake size={17} />
-                        What We Offer
-                    </span>
-
-                    <h2 className="mt-5 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl dark:text-white">
-                        Everything You Need to
-                        <span className="text-green-600 dark:text-green-500">
-                            {" "}Make an Impact
+                {/* Services heading */}
+                <div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-center">
+                    <div>
+                        <span className="text-sm font-semibold tracking-wide text-emerald-700 dark:text-emerald-400">
+                            Our Services
                         </span>
-                    </h2>
 
-                    <p className="mt-5 text-base leading-7 text-gray-600 dark:text-gray-400">
-                        Kindora makes it easier to discover opportunities,
-                        connect with people, and turn your good intentions
-                        into meaningful community action.
-                    </p>
+                        <h2 className="mt-3 max-w-2xl text-2xl leading-snug font-semibold tracking-tight text-gray-900 sm:text-3xl dark:text-white">
+                            We are dedicated to making a
+                            <br className="hidden sm:block" /> positive impact in our community.
+                        </h2>
+                    </div>
+
+                    <div className="flex h-20 w-28 shrink-0 flex-col items-center justify-center self-start rounded-[45%] bg-[#91ded4] text-center text-emerald-900 md:self-center dark:bg-emerald-900 dark:text-emerald-100">
+                        <Users size={20} />
+                        <span className="mt-1 text-sm font-bold">
+                            Together
+                        </span>
+                        <span className="text-[10px]">
+                            Stronger Communities
+                        </span>
+                    </div>
                 </div>
 
-                {/* Feature cards */}
-                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    {features.map((feature) => {
-                        const Icon = feature.icon;
+                {/* Service cards */}
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {services.map((service) => {
+                        const Icon = service.icon;
 
                         return (
                             <div
-                                key={feature.number}
-                                className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-[#fbfefc] p-7 transition duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-xl hover:shadow-green-900/5 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-green-900"
+                                key={service.title}
+                                className={`group min-h-[175px] rounded-2xl border p-5 transition duration-300 hover:-translate-y-1 ${
+                                    service.featured
+                                        ? "border-[#236c5d] bg-[#236c5d] text-white shadow-lg shadow-emerald-900/10"
+                                        : "border-gray-200 bg-white text-gray-900 hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-900/5 dark:border-gray-800 dark:bg-gray-900 dark:text-white dark:hover:border-emerald-800"
+                                }`}
                             >
-                                {/* Number */}
-                                <div className="absolute right-6 top-6 text-sm font-bold tracking-widest text-gray-200 dark:text-gray-700">
-                                    {feature.number}
-                                </div>
+                                <Icon
+                                    size={23}
+                                    strokeWidth={1.6}
+                                    className={
+                                        service.featured
+                                            ? "text-white"
+                                            : "text-[#236c5d] dark:text-emerald-400"
+                                    }
+                                />
 
-                                {/* Icon */}
-                                <div
-                                    className={`flex h-14 w-14 items-center justify-center rounded-2xl ${feature.color}`}
-                                >
-                                    <Icon size={27} strokeWidth={1.8} />
-                                </div>
-
-                                {/* Content */}
-                                <h3 className="mt-7 text-xl font-bold text-gray-900 dark:text-white">
-                                    {feature.title}
+                                <h3 className="mt-4 text-base font-semibold">
+                                    {service.title}
                                 </h3>
 
-                                <p className="mt-3 text-sm leading-7 text-gray-600 dark:text-gray-400">
-                                    {feature.description}
+                                <p
+                                    className={`mt-2 text-xs leading-5 ${
+                                        service.featured
+                                            ? "text-emerald-50"
+                                            : "text-gray-500 dark:text-gray-400"
+                                    }`}
+                                >
+                                    {service.description}
                                 </p>
-
-                                {/* Bottom decoration */}
-                                <div className="mt-7 flex items-center justify-between">
-                                    <span className="h-1 w-12 rounded-full bg-green-500 transition-all duration-300 group-hover:w-20" />
-
-                                    <ArrowUpRight
-                                        size={20}
-                                        className="text-gray-400 transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-green-600"
-                                    />
-                                </div>
                             </div>
                         );
                     })}
                 </div>
 
-                {/* Bottom CTA */}
-                <div className="mt-14 flex flex-col items-center justify-between gap-6 rounded-3xl bg-[#08a77f] px-7 py-9 sm:flex-row sm:px-10">
-                    <div>
-                        <h3 className="text-2xl font-bold text-white">
-                            Ready to make a difference?
-                        </h3>
-                        <p className="mt-2 text-sm text-green-50">
-                            Find an event and become part of something meaningful.
-                        </p>
+                {/* Impact section */}
+                <div className="mt-20 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+
+                    {/* Image collage */}
+                    <div className="relative mx-auto w-full max-w-xl">
+                        <div className="grid grid-cols-2 gap-3 sm:gap-4">
+
+                            {/* Left image column */}
+                            <div className="grid gap-3 sm:gap-4">
+                                <div className="h-36 overflow-hidden rounded-2xl sm:h-44">
+                                    <img
+                                        src="/photo1.jpeg"
+                                        alt="Community volunteers working together"
+                                        className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                                    />
+                                </div>
+
+                                <div className="h-36 overflow-hidden rounded-2xl sm:h-44">
+                                    <img
+                                        src="/photo2.jpeg"
+                                        alt="People connecting through community activities"
+                                        className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Right image */}
+                            <div className="h-full min-h-[300px] overflow-hidden rounded-2xl sm:min-h-[364px]">
+                                <img
+                                    src="/photo3.jpeg"
+                                    alt="Children receiving community support"
+                                    className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Community badge */}
+                        <div className="absolute -bottom-5 right-4 flex items-center gap-3 rounded-full bg-[#236c5d] px-5 py-3 text-white shadow-xl sm:right-8">
+                            <div className="flex -space-x-3">
+                                <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#236c5d] bg-emerald-200 text-emerald-900">
+                                    <Users size={17} />
+                                </div>
+                                <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#236c5d] bg-yellow-200 text-yellow-900">
+                                    <HeartHandshake size={17} />
+                                </div>
+                                <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#236c5d] bg-pink-200 text-pink-900">
+                                    <HandHeart size={17} />
+                                </div>
+                            </div>
+
+                            <span className="text-sm font-semibold">
+                                Community Together
+                            </span>
+                        </div>
                     </div>
 
-                    <Link
-                        href="/upcoming-events"
-                        className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-green-700 transition hover:bg-green-50"
-                    >
-                        Explore Events
-                        <ArrowUpRight size={18} />
-                    </Link>
+                    {/* Impact content */}
+                    <div className="pt-5 lg:pt-0">
+                        <span className="text-sm font-semibold tracking-wide text-emerald-700 dark:text-emerald-400">
+                            Our Impact
+                        </span>
+
+                        <h2 className="mt-4 max-w-xl text-3xl leading-tight font-semibold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+                            Real change through
+                            <span className="text-[#08a77f]">
+                                {" "}collective action.
+                            </span>
+                        </h2>
+
+                        <p className="mt-6 text-sm leading-7 text-gray-600 dark:text-gray-400">
+                            Every meaningful change starts with people coming
+                            together. Kindora brings communities closer by
+                            making it easier to organize events, find
+                            volunteering opportunities, and participate in
+                            initiatives that create a better future.
+                        </p>
+
+                        <p className="mt-4 text-sm leading-7 text-gray-600 dark:text-gray-400">
+                            From environmental activities and educational
+                            support to community service and social awareness,
+                            we believe everyone has something valuable to
+                            contribute.
+                        </p>
+
+                        {/* Impact highlights */}
+                        <div className="mt-7 grid grid-cols-2 gap-5 border-t border-gray-200 pt-6 dark:border-gray-800">
+                            <div>
+                                <div className="flex items-center gap-2 text-[#08a77f]">
+                                    <Users size={20} />
+                                    <span className="text-sm font-semibold">
+                                        Community
+                                    </span>
+                                </div>
+                                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                                    Connect with people who care.
+                                </p>
+                            </div>
+
+                            <div>
+                                <div className="flex items-center gap-2 text-[#08a77f]">
+                                    <Leaf size={20} />
+                                    <span className="text-sm font-semibold">
+                                        Positive Change
+                                    </span>
+                                </div>
+                                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                                    Turn good intentions into action.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* CTA */}
+                        <Link
+                            href="/upcoming-events"
+                            className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#236c5d] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#185747]"
+                        >
+                            Explore Our Community
+                            <ArrowUpRight size={18} />
+                        </Link>
+                    </div>
                 </div>
             </div>
         </section>
