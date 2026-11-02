@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kindora – Social Development Events Platform
 
-## Getting Started
+### Live Website
+🔗 [https://kindora-iota.vercel.app](https://kindora-iota.vercel.app)
 
-First, run the development server:
+## About Kindora
+
+Kindora is a social development events platform designed to connect people who want to make a positive impact in their communities. Users can create, discover, join, and manage social development events such as charity campaigns, community cleanups, plantation programs, blood donations, and educational activities.
+
+The platform encourages community participation and makes it easier for people to contribute to meaningful social initiatives.
+
+## Features
+
+- **User Authentication:** Secure user registration and login with email/password and social login options.
+- **Create Events:** Authenticated users can create social development events with titles, descriptions, locations, dates, categories, and images.
+- **Upcoming Events:** Explore upcoming social development events and discover opportunities to participate.
+- **Event Details:** View detailed information about each event, including event date, location, organizer, and description.
+- **Join Events:** Logged-in users can join events and participate in community activities.
+- **Manage Events:** Event creators can update or delete their own events.
+- **Joined Events:** Users can view and track the events they have joined.
+- **Responsive Design:** Enjoy a user-friendly experience across desktop, tablet, and mobile devices.
+- **Dark and Light Theme:** Switch between dark and light modes according to your preference.
+- **Protected Routes:** Authentication-based access control for private pages and actions.
+
+## Technologies Used
+
+### Frontend
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Better Auth
+- React Toastify
+- Lucide React
+
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- JWT Authentication
+
+## Installation and Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/kindora.git
+```
+
+### 2. Navigate to the Project
+
+```bash
+cd kindora
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Configure Environment Variables
+
+Create a `.env.local` file in the frontend root and configure the required environment variables.
+
+Example:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8000
+```
+
+Configure the backend environment variables separately in the server directory.
+
+### 5. Run the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Purpose
 
-## Learn More
+Kindora aims to encourage social responsibility, community engagement, and collaboration by providing a simple platform for organizing and participating in social development activities.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Developed as a Social Development Events Platform project.
