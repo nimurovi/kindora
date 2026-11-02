@@ -8,7 +8,7 @@ import { ArrowRight, CalendarDays, Loader2 } from "lucide-react";
 import EventCard from "@/components/events/EventCard";
 import type { Event } from "@/types/event";
  
-const API_URL = "http://localhost:8000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ;
 export default function RecentUpcomingEvents() {
     const [events, setEvents] = useState<Event[]>([]);
     const [loading, setLoading] = useState(true);

@@ -49,6 +49,8 @@ export default function ManageEventsPage() {
     const { data: session, isPending } = authClient.useSession();
     const user = session?.user;
 
+   
+
     const [events, setEvents] = useState<Event[]>([]);
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
@@ -74,14 +76,19 @@ export default function ManageEventsPage() {
         }
 
         const fetchMyEvents = async () => {
+             const {data,error}=await authClient.token()
+        const token=data?.token
             try {
                 setLoading(true);
                 setError("");
 
 
                 const response = await fetch(
-                    `http://localhost:8000/get-event/${user.email}`,
-                    {
+                    `${process.env.NEXT_PUBLIC_API_URL}/get-event/${user.email}`,
+                    {   
+                        headers: {
+                            "Authorization": `Bearer ${token}`,
+                        },
                         method: "GET",
                         cache: "no-store",
                     }
@@ -168,7 +175,7 @@ export default function ManageEventsPage() {
             setSuccess("");
 
             const response = await fetch(
-                `http://localhost:8000/update-event/${user.email}`,
+                `${process.env.NEXT_PUBLIC_API_URL}/update-event/${user.email}`,
                 {
                     method: "PATCH",
                     credentials: "include",
@@ -219,7 +226,7 @@ export default function ManageEventsPage() {
             setSuccess("");
 
             const response = await fetch(
-                `http://localhost:8000/delete-event/${user.email}`,
+                `${process.env.NEXT_PUBLIC_API_URL}/delete-event/${user.email}`,
                 {
                     method: "DELETE",
                     credentials: "include",

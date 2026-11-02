@@ -28,13 +28,18 @@ export default function JoinedEventsPage() {
         }
 
         const fetchJoinedEvents = async () => {
+            const { data, error } = await authClient.token()
+            const token = data?.token
             try {
                 setLoading(true);
                 setError("");
 
                 const response = await fetch(
-                    `http://localhost:8000/my-joined-events?userId=${encodeURIComponent(session.user.id)}`,
+                    `${process.env.NEXT_PUBLIC_API_URL}/my-joined-events?userId=${encodeURIComponent(session.user.id)}`,
                     {
+                        headers: {
+                            "Authorization": `Bearer ${token}`,
+                        },
                         method: "GET",
                         cache: "no-store",
                     }

@@ -51,7 +51,7 @@ export default function UpcomingEventsPage() {
                 setLoading(true);
                 setError("");
 
-                const response = await fetch( "http://localhost:8000/get-events",
+                const response = await fetch( `${process.env.NEXT_PUBLIC_API_URL}/get-events`,
                     
                     { 
                         method: "GET",

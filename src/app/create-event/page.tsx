@@ -15,6 +15,7 @@ import {
     ArrowLeft,
     PlusCircle,
 } from "lucide-react";
+ 
 
 const eventTypes = [
     "Cleanup",
@@ -69,6 +70,11 @@ export default function CreateEventPage() {
     ) => {
         e.preventDefault();
 
+        const {data,error}=await authClient.token()
+        const token=data?.token
+         
+
+
         if (!session?.user) {
             toast.error("Please login before creating an event.");
             router.push("/signin");
@@ -95,12 +101,14 @@ export default function CreateEventPage() {
                 creatorName: session.user.name,
             };
 
-            const response = await fetch("http://localhost:8000/create-event",
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/create-event`,
                  
                 {
                     method: "POST",
                     headers: {
+                        
                         "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`,
                     },
                     body: JSON.stringify(eventData),
                 }
