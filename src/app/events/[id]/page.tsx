@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 
 import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 
 const API_URL =
     process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
@@ -116,7 +117,7 @@ export default function EventDetailsPage() {
                 throw new Error(data.message || "Failed to join event.");
             }
 
-            alert(data.message);
+            toast.success("You successfully joined the event!");
         } catch (err) {
             setError(
                 err instanceof Error ? err.message : "Something went wrong."
